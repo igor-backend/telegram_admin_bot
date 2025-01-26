@@ -2,6 +2,7 @@ import asyncio
 import logging
 from os import getenv
 
+from handlers.info import info_router
 from handlers.start import start_router
 
 from aiogram import Bot, Dispatcher
@@ -17,6 +18,7 @@ async def main() -> None:
     dispatcher = Dispatcher()
     dispatcher.include_routers(
         start_router,
+        info_router,
     )
 
     bot = Bot(token=TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
